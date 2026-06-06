@@ -1,0 +1,131 @@
+services:
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./magento:/var/www/html
+    depends_on:
+      - php-fpm
+    networks:
+      - magento-net
+    restart: unless-stopped
+
+  php-fpm:
+    build: ./php-fpm
+    container_name: php-fpm
+    volumes:
+      - ./magento:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - magento-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "php-fpm -t 2>&1 | grep -q 'successful'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  varnish:
+    build: ./varnish
+    container_name: varnish
+    depends_on:
+      - php-fpm
+    networks:
+      - magento-net
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - magento-net
+    restart: unless-stopped
+    command: --innodb-buffer-pool-size=256M
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  elasticsearch:
+    image: elasticsearch:7.17.10
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms256m -Xmx256m
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    networks:
+      - magento-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  redis:
+    image: redis:8-alpine
+    container_name: redis
+    networks:
+      - magento-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
+    networks:
+      - magento-net
+    restart: unless-stopped
+
+  cron:
+    build: ./php-fpm
+    container_name: magento-cron
+    command: >
+      sh -c "while true; do
+        php /var/www/html/bin/magento cron:run --group default;
+        php /var/www/html/bin/magento cron:run --group index;
+        php /var/www/html/bin/magento cron:run --group consumers;
+        sleep 60;
+      done"
+    volumes:
+      - ./magento:/var/www/html
+    depends_on:
+      - php-fpm
+    networks:
+      - magento-net
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  es-data:
+
+networks:
+  magento-net:
+    driver: bridge

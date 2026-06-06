@@ -1,0 +1,48 @@
+[2026-06-06T05:22:35.098956+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer sales_order_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"00:00:00 865 ms","pid":"121","caller":"bin\/magento setup:install --base-url=https:\/\/test.dyna.com\/ --base-url-secure=https:\/\/test.dyna.com\/ --backend-frontname=secureadmin --db-host=mysql"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-06-06T05:22:35.284521+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer sales_order_status_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:01 50 ms","pid":"121","caller":"bin\/magento setup:install --base-url=https:\/\/test.dyna.com\/ --base-url-secure=https:\/\/test.dyna.com\/ --backend-frontname=secureadmin --db-host=mysql"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-06-06T05:22:35.347743+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer store_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:01 114 ms","pid":"121","caller":"bin\/magento setup:install --base-url=https:\/\/test.dyna.com\/ --base-url-secure=https:\/\/test.dyna.com\/ --backend-frontname=secureadmin --db-host=mysql"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-06-06T05:24:32.609429+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer sales_order_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END","elapsed":"883 ms","pid":"149","caller":"bin\/magento setup:upgrade"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_after_insert AFTER INSERT ON sales_order FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_data_exporter_cl` (`entity_id`) VALUES (NEW.`entity_id`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-06-06T05:24:32.739504+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer sales_order_status_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END","elapsed":"00:00:00 13 ms","pid":"149","caller":"bin\/magento setup:upgrade"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_sales_order_status_after_insert AFTER INSERT ON sales_order_status FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `sales_order_status_data_exporter_cl` (`entity_id`) VALUES (NEW.`status`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
+[2026-06-06T05:24:32.753081+00:00] main.ERROR: {"feed":"undefined","operation":"undefined","status":"CDE04-02 Cannot set indexer to Update On Schedule mode for indexer store_data_exporter. Error: SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END","elapsed":"00:00:00 27 ms","pid":"149","caller":"bin\/magento setup:upgrade"} {"exception":"[object] (Zend_Db_Statement_Exception(code: 0): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable), query was: CREATE TRIGGER trg_store_after_insert AFTER INSERT ON store FOR EACH ROW
+BEGIN
+INSERT IGNORE INTO `store_data_exporter_cl` (`entity_id`) VALUES (NEW.`website_id`);
+END at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:109)
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1419 You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable) at /var/www/html/vendor/magento/framework/DB/Statement/Pdo/Mysql.php:90)"} []
