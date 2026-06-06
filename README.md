@@ -257,4 +257,79 @@ magento-stack/
 
 Nothing else is open. MySQL, Redis, Elasticsearch, and phpMyAdmin are all on an internal Docker network and not reachable from outside.
 
+## References & Research Sources
 
+### Docker & Container Setup
+- Docker official install guide for Debian: https://docs.docker.com/engine/install/debian/
+- Docker Compose v2 docs: https://docs.docker.com/compose/
+- PHP-FPM official Docker image: https://hub.docker.com/_/php
+- NGINX official Docker image: https://hub.docker.com/_/nginx
+- Varnish official Docker image: https://hub.docker.com/_/varnish
+- Multi-stage Docker builds: https://docs.docker.com/build/building/multi-stage/
+- Docker non-root user best practices: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
+
+### Magento 2 Installation
+- Magento 2 system requirements: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html
+- Magento 2 composer installation guide: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/composer.html
+- Magento 2 command line install reference: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/advanced.html
+- Magento Marketplace access keys: https://commercemarketplace.adobe.com/customer/accessKeys/
+- Magento 2 file permissions: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/file-system/configure-permissions.html
+
+### NGINX Configuration
+- NGINX FastCGI configuration: https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/
+- NGINX FastCGI buffer tuning: https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffers
+- NGINX SSL/TLS configuration best practices: https://nginx.org/en/docs/http/configuring_https_servers.html
+- NGINX HTTP/2 setup: https://nginx.org/en/docs/http/ngx_http_v2_module.html
+- NGINX resolver directive for Docker: https://nginx.org/en/docs/http/ngx_http_core_module.html#resolver
+- Mozilla SSL configuration generator: https://ssl-config.mozilla.org/
+
+### PHP-FPM Tuning
+- PHP-FPM configuration reference: https://www.php.net/manual/en/install.fpm.configuration.php
+- PHP-FPM process manager modes explained: https://www.php.net/manual/en/install.fpm.configuration.php#pm
+- Calculating pm.max_children: https://spot13.com/pmcalculator/
+- PHP memory_limit for Magento: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html
+
+### Redis Configuration
+- Redis official Docker image: https://hub.docker.com/_/redis
+- Magento 2 Redis cache configuration: https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/redis/redis-pg-cache.html
+- Magento 2 Redis session configuration: https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/redis/redis-session.html
+- Redis logical databases explained: https://redis.io/commands/select/
+
+### Elasticsearch
+- Elasticsearch official Docker image: https://hub.docker.com/_/elasticsearch
+- Elasticsearch heap size configuration: https://www.elastic.co/guide/en/elasticsearch/reference/current/advanced-configuration.html#set-jvm-heap-size
+- Magento 2 Elasticsearch configuration: https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/search/configure-search-engine.html
+- Running Elasticsearch in single-node mode: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html#single-node-discovery
+
+### MySQL Tuning
+- MySQL 8.0 official Docker image: https://hub.docker.com/_/mysql
+- InnoDB buffer pool size tuning: https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool-size.html
+- Magento 2 MySQL requirements: https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/database/mysql.html
+
+### Varnish
+- Varnish official Docker image: https://hub.docker.com/_/varnish
+- Magento 2 Varnish configuration guide: https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/varnish/config-varnish.html
+- Varnish VCL reference: https://varnish-cache.org/docs/trunk/reference/vcl.html
+- Magento 2 exporting Varnish VCL: https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/varnish/use-varnish-cache.html
+
+### AWS & Infrastructure
+- AWS EC2 instance types — Free Tier: https://aws.amazon.com/free/
+- AWS Security Groups documentation: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html
+- AWS Elastic IP addresses: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+- Debian 12 on AWS Marketplace: https://aws.amazon.com/marketplace/pp/prodview-l5gv52ndg5q6i
+
+### TLS & Security
+- OpenSSL self-signed certificate generation: https://www.openssl.org/docs/man1.1.1/man1/req.html
+- Subject Alternative Names in self-signed certs: https://www.openssl.org/docs/man1.1.1/man1/x509.html
+- SSH hardening — disable password auth: https://www.ssh.com/academy/ssh/sshd_config
+- Linux swap configuration: https://www.kernel.org/doc/html/latest/admin-guide/sysctl/vm.html
+
+### Docker Compose Reference
+- Compose file version 3 reference: https://docs.docker.com/compose/compose-file/
+- Docker Compose healthcheck configuration: https://docs.docker.com/compose/compose-file/05-services/#healthcheck
+- Docker named volumes: https://docs.docker.com/storage/volumes/
+- Docker networks: https://docs.docker.com/network/
+
+### General Magento 2 Docker References
+- Mark Shust's Magento Docker setup (community reference): https://github.com/markshust/docker-magento
+- Magento 2 DevDocs performance configuration: https://experienceleague.adobe.com/docs/commerce-operations/performance-best-practices/software.html
